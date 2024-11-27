@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Monetización desde tu Smartphone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #00344B;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 5px;
+            color: #388e3c;
+            font-weight: bold;
+        }
+        .cta-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .cta-container p {
+            color: #00344B;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .cta-container a {
+            display: inline-block;
+            background-color: #00DC42;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .cta-container a:hover {
+            background-color: #00c03a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Manual de Monetización Inteligente desde tu Smartphone</h1>
+        <p>Completa este formulario interactivo para descubrir estrategias específicas de monetización adaptadas a tus habilidades y tiempo disponible.</p>
+
+        <form id="monetization-form">
+            <label for="skills">¿Qué habilidades o conocimientos puedes ofrecer?</label>
+            <input type="text" id="skills" placeholder="Ejemplo: Diseño gráfico, redacción, idiomas">
+
+            <label for="time">¿Cuántas horas al día puedes dedicar a monetizar?</label>
+            <input type="number" id="time" placeholder="Ejemplo: 3">
+
+            <label for="goal">¿Cuál es tu objetivo mensual de ingresos (€)?</label>
+            <input type="number" id="goal" placeholder="Ejemplo: 1000">
+
+            <button type="button" onclick="generateMonetizationPlan()">Generar Plan</button>
+        </form>
+
+        <div id="result" class="result" style="display: none;"></div>
+
+        <div class="cta-container">
+            <p>crear un Ingreso Extra Online sin perder tiempo</p>
+            <a href="https://klicana.work/p6Aik4" target="_blank">SÍ!, UNIRME AL DESAFÍO!</a>
+        </div>
+    </div>
+
+    <script>
+        function generateMonetizationPlan() {
+            const skills = document.getElementById("skills").value.trim();
+            const time = parseFloat(document.getElementById("time").value);
+            const goal = parseFloat(document.getElementById("goal").value);
+
+            if (!skills || isNaN(time) || isNaN(goal) || time <= 0 || goal <= 0) {
+                document.getElementById("result").style.display = "block";
+                document.getElementById("result").textContent = "Por favor, completa todos los campos con valores válidos.";
+                return;
+            }
+
+            const hourlyRate = (goal / (time * 30)).toFixed(2);
+            const suggestedStrategies = `
+                <ul>
+                    <li>Ofrece servicios relacionados con "${skills}" en plataformas como Upwork o Fiverr.</li>
+                    <li>Usa redes sociales para promocionar tus habilidades y captar clientes directos.</li>
+                    <li>Considera crear un infoproducto (curso, ebook) basado en tus conocimientos.</li>
+                </ul>
+            `;
+
+            document.getElementById("result").style.display = "block";
+            document.getElementById("result").innerHTML = `
+                <strong>Plan de Monetización:</strong><br>
+                <strong>Habilidad:</strong> ${skills}<br>
+                <strong>Meta diaria:</strong> Trabajar ${time} horas para ganar €${hourlyRate} por hora.<br>
+                <strong>Estrategias sugeridas:</strong> ${suggestedStrategies}
+            `;
+        }
+    </script>
+</body>
+</html>
